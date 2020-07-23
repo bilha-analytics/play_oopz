@@ -44,7 +44,7 @@ class Employee:
     @classmethod ##@ alternative constructor use ase 
     def from_string(cls, emp_str):
         fname, lname, pay = emp_str.split('-' ) 
-        return cls(fname, lname, pay) 
+        return cls(fname, lname, int(pay)  )
 
     @staticmethod
     def is_workday(day):
@@ -53,7 +53,7 @@ class Employee:
 
     ######Dunders 
     def __add__(self, other):
-        return self.pay + other.pay
+        return int(self.pay) + int(other.pay)
 
     def __len__(self):
         return len(self.fullname ) 
@@ -88,14 +88,14 @@ class Manager(Employee):
 
 
     def empz_salary_budget(self):
-        # res = deepcopy(self) 
-        amt = 0 
+        res = deepcopy(self) 
+        # amt = 0 
         for e in self.empz: 
-            # res.pay = res + e 
-            amt += e.pay
+            res.pay = res + e 
+            # amt += e.pay
 
-        # return res.pay 
-        return amt 
+        return res.pay 
+        # return amt 
 
     def str_empz(self):
         res = f">>>>> BEGIN Reportees for {self.fullname}"
@@ -180,7 +180,13 @@ if __name__ == '__main__':
     print(f"\n{'='*35}\n")
     print( emp + emp )
     print( emp + emp2 )
-    # print( emp + emp3 )
-    # print( emp2 + emp3 )
+    print( emp + emp3 )
+    print( emp2 + emp3 )
     del emp.fullname
     print( emp )
+    
+    # import sys
+    # print( sys.version)
+    # print( sys.version_info)
+    # print( sys.executable)
+
