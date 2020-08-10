@@ -185,8 +185,8 @@ if __name__ == '__main__':
     del emp.fullname
     print( emp )
     
-    # import sys
-    # print( sys.version)
-    # print( sys.version_info)
-    # print( sys.executable)
+    import sys
+    print( sys.version)
+    print( sys.version_info)
+    print( sys.executable)
 
